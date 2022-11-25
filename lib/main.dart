@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_shop_app/pages/login_page.dart';
+import 'package:mobile_shop_app/utils/routes.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'home_page.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -9,13 +14,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Material(
-        child: Center(
-          child: Container(
-            child: Text("welcome to 30 days of flutter"),
-          ),
-        ),
+      themeMode: ThemeMode.light,
+      theme: ThemeData(
+        primarySwatch: Colors.deepPurple,
+        fontFamily: GoogleFonts.lato().fontFamily,
       ),
+      initialRoute: "/",
+      routes: {
+        "/": (context) => LoginPage(),
+        MyRoutes.homeRoute: (context) => HomePage(),
+        MyRoutes.loginRoute: (context) => LoginPage(),
+      },
     );
   }
 }
+//2 5 28 
